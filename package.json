@@ -1,0 +1,9 @@
+{
+  "name": "iacym-peru-local",
+  "version": "1.0.0",
+  "description": "Réplica local del sitio web oficial de IACyM Perú (iacymperu.org)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

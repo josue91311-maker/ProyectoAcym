@@ -1,0 +1,9 @@
+# Ignorar archivos temporales y dependencias
+node_modules/
+scratch/
+.gemini/
+
+# GitHub tiene un límite estricto de 100MB por archivo, pero rechaza o advierte videos pesados
+# Excluimos videos gigantes que no se usan en la portada (como los .mov de 67MB y webm de 74MB)
+assets/videos/CAMEN_VIDEO3.mov
+assets/videos/Promo.webm

@@ -1,0 +1,536 @@
+/* ==========================================================================
+   IACyM Perú — 100 Años Centenario & Evangelio Cuádruple
+   - Subtle Original Background Video in Hero (#home)
+   - Layered Navy Waves + Golden-Orange Ribbon (Franja Naranja) Identity Design
+   - 4 Official Emblem Symbols Fly Down & Transition from White to Deep Navy on Cards
+   ========================================================================== */
+
+:root {
+  --iacym-navy-deep: #0b1024;
+  --iacym-navy-ink: #131d3b;
+  --iacym-orange: #f59e0b;
+  --iacym-orange-deep: #d97706;
+  --iacym-pearl: #f4f6fb;
+  --iacym-white: #ffffff;
+  --iacym-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wrapper {
+  overflow-x: clip !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO CLEAN SECTION (#home)
+   - overflow: visible !important so the 4 symbols fly down into #identidad
+   -------------------------------------------------------------------------- */
+.iacym-hero-clean {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1024;
+  overflow: visible !important;
+  padding: 110px 0 70px;
+  z-index: 25;
+}
+
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(1100px circle at 50% 48%, #162045 0%, #0d1433 55%, #0b1024 100%);
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.25;
+  filter: saturate(0.75) contrast(1.08);
+  pointer-events: none;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 16, 36, 0.68) 0%,
+    rgba(14, 21, 50, 0.56) 48%,
+    rgba(11, 16, 36, 0.96) 92%,
+    #0b1024 100%
+  );
+  pointer-events: none;
+}
+
+.hero-ambient-aurora {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 960px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.16) 0%, rgba(147, 197, 253, 0.05) 45%, transparent 70%);
+  filter: blur(60px);
+}
+
+.hero-mouse-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(650px circle at var(--mouse-x, 50%) var(--mouse-y, 45%), rgba(255, 255, 255, 0.045), transparent 70%);
+}
+
+.hero-content-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Official Church Title Above Logo */
+.hero-header-stack {
+  position: relative;
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-top-phrase {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 5.5px;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 768px) {
+  .hero-top-phrase {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+}
+
+/* 3D Emblem Stage */
+.hero-logo-3d-stage {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  perspective: 1200px;
+  margin: 8px auto 0;
+  user-select: none;
+  z-index: 30;
+}
+
+.hero-logo-tilt-rig {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.united-logo-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.14) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 75%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.hero-piece-unit {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Exact bounding-box center transform-origins for pixel-perfect socket docking */
+.hero-unit-cruz,
+.hero-unit-cruz .hero-svg-layer {
+  transform-origin: 53.70% 38.42%;
+}
+
+.hero-unit-lavacro,
+.hero-unit-lavacro .hero-svg-layer {
+  transform-origin: 77.82% 52.68%;
+}
+
+.hero-unit-jarra,
+.hero-unit-jarra .hero-svg-layer {
+  transform-origin: 27.89% 51.86%;
+}
+
+.hero-unit-corona,
+.hero-unit-corona .hero-svg-layer {
+  transform-origin: 53.13% 70.33%;
+}
+
+.hero-svg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s var(--iacym-ease), filter 0.35s ease;
+}
+
+.hero-piece-unit.is-card-hovered .hero-svg-layer {
+  transform: scale(1.13);
+}
+
+.iacym-exact-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+.globe-exact-path {
+  fill: #ffffff;
+  fill-opacity: 0.88;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+
+.emblem-shape-path {
+  fill: #ffffff;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+}
+
+.emblem-extrude-back {
+  fill: #94a3b8;
+  fill-opacity: 0.32;
+  transform: translate(0.6px, 1.2px);
+}
+
+.corona-inner-occlusion {
+  fill: #121a3d;
+  transition: opacity 0.2s ease;
+}
+
+/* Scroll Cue */
+.hero-scroll-cue {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.mouse-icon {
+  width: 20px;
+  height: 32px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.42);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mouse-wheel {
+  width: 3px;
+  height: 6px;
+  border-radius: 2px;
+  background: #ffffff;
+  margin-top: 5px;
+  animation: scrollWheel 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(10px); opacity: 0; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   2. NUESTRA IDENTIDAD: LAYERED WAVES + ORANGE RIBBON & 4 WHITE CARDS
+   -------------------------------------------------------------------------- */
+.gospel-identity-section {
+  position: relative;
+  background: var(--iacym-pearl);
+  padding: 0 !important;
+  color: var(--iacym-navy-ink);
+  overflow: visible !important;
+  z-index: 10;
+}
+
+/* Top Dark Navy Wave Banner with Orange Ribbon */
+.identity-top-wave-banner {
+  position: relative;
+  width: 100%;
+  padding: 54px 0 95px;
+  overflow: hidden;
+}
+
+.identity-banner-waves-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.identity-header-container {
+  position: relative;
+  z-index: 5;
+}
+
+.identity-flanked-subtitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.orange-flank-line {
+  width: 68px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.2), #f59e0b, rgba(245, 158, 11, 0.2));
+  display: inline-block;
+}
+
+.ywam-utility-label {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.section-title h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 42px;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.white-color {
+  color: #ffffff !important;
+}
+
+.orange-accent-line {
+  width: 76px;
+  height: 3px;
+  background: linear-gradient(90deg, #d97706, #fbbf24, #d97706);
+  border: none;
+  border-radius: 3px;
+  margin: 16px auto 20px;
+}
+
+.identity-lead-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Light Pearl Stage for the 4 Cards */
+.identity-cards-stage {
+  position: relative;
+  background: var(--iacym-pearl);
+  padding: 0 0 115px;
+  z-index: 6;
+}
+
+.gospel-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1240px;
+  margin: -28px auto 0;
+  padding: 0 15px;
+  position: relative;
+  z-index: 8;
+}
+
+.gospel-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  border-radius: 20px;
+  padding: 28px 22px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  box-shadow: 0 16px 38px rgba(15, 23, 52, 0.08), 0 4px 12px rgba(15, 23, 52, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gospel-card.is-landed {
+  border-color: rgba(245, 158, 11, 0.38);
+}
+
+.gospel-card:hover {
+  border-color: rgba(245, 158, 11, 0.75);
+  box-shadow: 0 22px 48px rgba(15, 23, 52, 0.14), 0 0 24px rgba(245, 158, 11, 0.12);
+}
+
+/* Socket target where the flying piece from the Hero emblem lands */
+.gospel-card-socket {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.socket-landing-halo {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.10) 0%, rgba(19, 29, 59, 0.03) 65%, transparent 80%);
+  border: 1px dashed rgba(217, 119, 6, 0.25);
+  transition: all 0.4s ease;
+}
+
+.gospel-card.is-landed .socket-landing-halo {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(19, 29, 59, 0.04) 65%, transparent 82%);
+  border: 1px solid rgba(245, 158, 11, 0.42);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.14);
+}
+
+/* Golden-Orange Top & Bottom Accent Lines around Card Title */
+.gospel-card-line-top {
+  width: 58px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.35), #f59e0b, rgba(217, 119, 6, 0.35));
+  border: none;
+  margin: 2px auto 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.gospel-card-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #131d3b;
+  margin: 0 0 12px;
+  letter-spacing: 0.4px;
+  position: relative;
+  z-index: 2;
+}
+
+.gospel-card-line {
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.35), #f59e0b, rgba(217, 119, 6, 0.35));
+  border: none;
+  margin: 0 auto 14px;
+  transition: width 0.35s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.gospel-card:hover .gospel-card-line {
+  width: 66px;
+}
+
+.gospel-verse-ref {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #c26d0b;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.gospel-verse-body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Soft Decorative Waves at the Bottom of Each Card */
+.card-bottom-wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bottom-Right Navy & Orange Wave Ribbon */
+.identity-bottom-wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 95px;
+  pointer-events: none;
+  z-index: 2;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .gospel-4col-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: -10px;
+  }
+  .section-title h2 { font-size: 32px; }
+  .identity-lead-text { font-size: 14px; }
+  .gospel-card { padding: 24px 18px 38px; }
+}
+
+@media (max-width: 600px) {
+  .gospel-4col-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .orange-flank-line {
+    width: 36px;
+  }
+}
